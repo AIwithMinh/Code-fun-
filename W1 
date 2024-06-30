@@ -1,0 +1,106 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyNxEHV41HHVOn2RMZC1DxpU",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/AIwithMinh/Code-fun-/blob/main/W1%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gRHvWKow4lA8",
+        "outputId": "99e9007f-ee6a-4ce7-cad3-5a411559b4e8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data written to random_data.csv\n"
+          ]
+        }
+      ],
+      "source": [
+        "import random\n",
+        "import csv\n",
+        "\n",
+        "def generate_random_data(n, i, j, filename):\n",
+        "    # Tạo một danh sách chứa n giá trị ngẫu nhiên trong khoảng từ i tới j\n",
+        "    random_data = [random.randint(i, j) for _ in range(n)]\n",
+        "\n",
+        "    # Ghi danh sách này vào một file CSV\n",
+        "    with open(filename, mode='w', newline='') as file:\n",
+        "        writer = csv.writer(file)\n",
+        "        writer.writerow([\"Value\"])  # Viết tiêu đề cột\n",
+        "        for value in random_data:\n",
+        "            writer.writerow([value])\n",
+        "\n",
+        "    print(f\"Data written to {filename}\")\n",
+        "\n",
+        "# Ví dụ: Tạo file chứa 100 giá trị ngẫu nhiên trong khoảng từ 1 tới 1000\n",
+        "generate_random_data(100, 1, 1000, 'random_data.csv')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Input\n",
+        "import random\n",
+        "i,j,n = map(int,input().split())\n",
+        "if n != j - i:\n",
+        "  print(\"ERROR\")\n",
+        "else:\n",
+        "  random_numbers = [random.randint(i, j) for _ in range(n)]\n",
+        "  with open('random_numbers.txt', 'w') as file:\n",
+        "    for number in random_numbers:\n",
+        "       file.write(f\"{number}\\n\")\n",
+        "#Output\n",
+        "  print(\"File 'random_numbers.txt' chứa các giá trị ngẫu nhiên.\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "umUa6HY96hPJ",
+        "outputId": "3f54e42a-4bbf-445a-91b9-249d9e31b197"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 7  6 \n",
+            "File 'random_numbers.txt' chứa các giá trị ngẫu nhiên.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
